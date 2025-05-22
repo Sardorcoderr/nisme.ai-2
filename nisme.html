@@ -58,6 +58,8 @@
                 
                 <div class="disclaimer">
                     Nisme AI - Smart assistant system
+
+                     <a href="#about" style="color: #8a8aff;">About Nisme.AI</a>
                 </div>
                 
                 <!-- <div class="message-input-container">
@@ -76,7 +78,96 @@
     </div> -->
     <script src="script.js"></script>
 
-    <!-- <script src="scriptt.js"></script> -->
+   
 </body>
+                               <!-- About Nisme.AI Popup -->
+                <div class="about-overlay" id="aboutOverlay"></div>
+                <div class="about-popup" id="aboutPopup">
+                    <h2>About Nisme.AI</h2>
+                    <p>Nisme.AI is an innovative artificial intelligence project designed to [your project description here].</p>
+                    <p>Key features:</p>
+                    <ul>
+                        <li>Feature 1</li>
+                        <li>Feature 2</li>
+                        <li>Feature 3</li>
+                    </ul>
+                    <p>Our mission is to [your mission statement].</p>
+                    <button class="close-about" id="closeAbout">Okey</button>
 </html>
+                     <style>
+        /* About Popup Styles */
+        .about-popup {
+            color: #8a8aff;
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        
+        .about-popup.active {
+            display: block;
+        }
+        
+        .about-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        
+        .about-overlay.active {
+            display: block;
+        }
+        
+        .close-about {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #8a8aff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+           <script>
+    // About section functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const aboutLink = document.querySelector('a[href="#about"]');
+        const aboutPopup = document.getElementById('aboutPopup');
+        const aboutOverlay = document.getElementById('aboutOverlay');
+        const closeAbout = document.getElementById('closeAbout');
+        
+        if (aboutLink) {
+            aboutLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                aboutPopup.classList.add('active');
+                aboutOverlay.classList.add('active');
+            });
+        }
+        
+        closeAbout.addEventListener('click', function() {
+            aboutPopup.classList.remove('active');
+            aboutOverlay.classList.remove('active');
+        });
+        
+        aboutOverlay.addEventListener('click', function() {
+            aboutPopup.classList.remove('active');
+            aboutOverlay.classList.remove('active');
+        });
+    });
+</script>         
         <!-- Rest of your HTML remains the same -->
